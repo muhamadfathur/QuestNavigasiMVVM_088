@@ -35,7 +35,8 @@ fun DetailMahasiswaView(
                 isiParam = items.second
             )
         }
-
+        Button(onClick = { onClickButton() }) {
+            Text("Back")
         }
     }
 }
