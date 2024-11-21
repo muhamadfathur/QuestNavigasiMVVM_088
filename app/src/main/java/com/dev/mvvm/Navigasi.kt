@@ -22,38 +22,3 @@ enum class Halaman {
     Detail,
 }
 
-@Composable
-fun Navigasi(
-    modifier: Modifier = Modifier,
-    viewModel: MahasiswaViewModel = viewModel(),
-    navHost: NavHostController = rememberNavController()
-) {
-    Scaffold { isipadding ->
-        val stateUI by viewModel.uiState.collectAsState()
-        NavHost(
-            modifier = modifier.padding(isipadding),
-            navController = navHost, startDestination = Halaman.Formulir.name
-        ) {
-            composable(route = Halaman.Formulir.name) {
-                val konteks = LocalContext.current
-                FormMahasiswaView(
-                    listJK = DataJenisKelamin.listJK.map { isi ->
-                        konteks.resources.getString(isi)
-                    },
-                    onSubmitClicked = {
-                        viewModel.saveDataMahasiswa(it)
-                        navHost.navigate(Halaman.Detail.name)
-                    }
-                )
-            }
-            composable(route = Halaman.Detail.name) {
-                DetailMahasiswaView(
-                    uiStateMahasiswa = stateUI,
-                    onClickButton = {
-                        navHost.popBackStack()
-                    }
-                )
-            }
-        }
-    }
-}
