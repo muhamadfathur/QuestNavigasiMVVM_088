@@ -35,25 +35,8 @@ fun DetailMahasiswaView(
                 isiParam = items.second
             )
         }
-        Button(onClick = { onClickButton() }) {
-            Text("Back")
+
         }
     }
 }
 
-@Composable
-fun CardSection(judulParam: String, isiParam: String) {
-    Column {
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(8.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Text(text = judulParam, modifier = Modifier.weight(0.8f))
-            Text(text = ":", modifier = Modifier.weight(0.2f))
-            Text(
-                text = "$isiParam",
-                modifier = Modifier.weight(2f)
-            )
-        }
-    }
-}
