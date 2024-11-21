@@ -44,5 +44,9 @@ fun FormMahasiswaView(
     val dataMahasiswa: MutableList<String> = mutableListOf(name, selectedGender, alamat, nim, email, noHP)
 
 
+    Column (Modifier.fillMaxSize().padding(16.dp)
+        , horizontalAlignment = Alignment.CenterHorizontally){
 
+
+    }
 }
