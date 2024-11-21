@@ -46,7 +46,66 @@ fun FormMahasiswaView(
 
     Column (Modifier.fillMaxSize().padding(16.dp)
         , horizontalAlignment = Alignment.CenterHorizontally){
+        OutlinedTextField(
+            value = name,
+            onValueChange = {name = it},
+            placeholder = { Text("Massukkan nama")},
+            label = {Text("Nama")},
+            modifier = Modifier.fillMaxWidth().padding(5.dp)
+        )
 
+        OutlinedTextField(
+            value = nim,
+            onValueChange = {nim = it},
+            placeholder = { Text("Massukkan NIM")},
+            label = {Text("NIM")},
+            modifier = Modifier.fillMaxWidth().padding(5.dp)
+        )
+
+        Row {
+            listJK.forEach { item ->
+                Row (verticalAlignment = Alignment.CenterVertically){
+                    RadioButton(selected = selectedGender == item,
+                        onClick = {
+                            selectedGender = item
+                        }
+                    )
+                    Text(item)
+                }
+            }
+        }
+
+        OutlinedTextField(
+            value = alamat,
+            onValueChange = {alamat = it},
+            placeholder = { Text("Massukkan alamat")},
+            label = {Text("Alamat")},
+            modifier = Modifier.fillMaxWidth().padding(5.dp)
+        )
+
+        OutlinedTextField(
+            value = email,
+            onValueChange = {email = it},
+            placeholder = { Text("Massukkan email")},
+            label = {Text("Email")},
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+            modifier = Modifier.fillMaxWidth().padding(5.dp)
+        )
+
+        OutlinedTextField(
+            value = noHP,
+            onValueChange = {noHP = it},
+            placeholder = { Text("Massukkan noHP")},
+            label = {Text("No HP")},
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            modifier = Modifier.fillMaxWidth().padding(5.dp)
+        )
+
+        Button(onClick = { onSubmitClicked(dataMahasiswa) })
+        {
+            Text("Simpan")
+
+        }
 
     }
 }
